@@ -29,7 +29,7 @@ def main (arg):
     	id varchar(20) NOT NULL,
     	latitude decimal(10,8) NOT NULL,
     	longitude decimal(10,8) NOT NULL
-    );
+    )ENGINE = MEMORY;
     """)
 
     cursor.execute('INSERT INTO usr_'+dept+' (id,latitude,longitude) VALUES ("'+id_user+'", "'+lat+'" , "'+lng+'" );')
