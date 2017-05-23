@@ -1,0 +1,1 @@
+{"id_user":"android_123456","latitude":44.04256,"longitude":01.25545,"dept":"44"}

@@ -1,0 +1,1 @@
+{"id_user":"voiture_test1","latitude":42.13556,"longitude":10.13545,"dept":"28","mode":"rural"}
