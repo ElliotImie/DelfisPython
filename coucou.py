@@ -1,7 +1,7 @@
 import sys
 
 def main (arg):
-	print arg
+	return arg
 
 
 if __name__ == "__main__":
