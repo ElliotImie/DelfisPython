@@ -1,0 +1,18 @@
+import BaseHTTPServer, SimpleHTTPServer
+import ssl
+
+httpd = BaseHTTPServer.HTTPServer(('localhost', 4443), SimpleHTTPServer.SimpleHTTPRequestHandler)
+httpd.socket = ssl.wrap_socket (httpd.socket, certfile='certificat.pem', server_side=True)
+httpd.serve_forever()
+
+
+
+
+//certificat
+
+https://doc.ubuntu-fr.org/tutoriel/comment_creer_un_certificat_ssl + : cat server.crt server.key | sudo tee server.pem
+
+
+https://192.162.68.251:4443/
+
+
