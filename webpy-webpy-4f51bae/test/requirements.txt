@@ -1,0 +1,4 @@
+psycopg2
+PyMySQL
+mysql-connector
+DBUtils
