@@ -2,7 +2,7 @@ import BaseHTTPServer, SimpleHTTPServer
 import ssl
 import json
 import scriptVelo
-import scriptVoiture
+import script_voiture
 
 jsonstring = {"id_user":"android2","latitude":"10.434","longitude":"10","dept":"49"}
 test = json.dumps(jsonstring)
@@ -13,10 +13,10 @@ class RedirectHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	        print("velo")
 		content_len = int(s.headers.getheader('content-length', 0))
 		post_body = s.rfile.read(content_len)
-	
+
 		print(post_body)
-	
-	        scriptVelo.main(post_body)
+
+	        script_velo.main(post_body)
 	        s.send_response(200)
 		s.send_header('Content-type','text/html')
 		s.end_headers()
@@ -25,13 +25,13 @@ class RedirectHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	        print("voiture")
 		content_len = int(s.headers.getheader('content-length', 0))
 		post_body = s.rfile.read(content_len)
-		
-		retour = scriptVoiture.main(post_body)
+
+		retour = script_voiture.main(post_body)
 		s.send_response(200)
 		s.send_header('Content-type','application/json')
 		s.end_headers()
 		s.wfile.write(retour)
-		
+
 	    else: print("Bad URL")
 
 httpd = BaseHTTPServer.HTTPServer(('', 4443), RedirectHandler)
