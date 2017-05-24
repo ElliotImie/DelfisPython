@@ -1,7 +1,7 @@
 import BaseHTTPServer, SimpleHTTPServer
 import ssl
 import json
-import scriptVelo
+import script_velo
 import script_voiture
 
 jsonstring = {"id_user":"android2","latitude":"10.434","longitude":"10","dept":"49"}
