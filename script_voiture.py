@@ -97,7 +97,7 @@ def main (arg):
                 result_min[field[0]]=str(data[i])
                 i+=1
 
-    jsonRep = '{ "nbVeloZoneLarge" : '+ result_large["nbVelo"] +', "nbVeloZoneCourte" : '+ result_min["nbVelo"] +' }'
+    jsonRep = '{ "nbVeloZoneLarge" : '+ (result_large["nbVelo"]-result_min["nbVelo"]) +', "nbVeloZoneCourte" : '+ result_min["nbVelo"] +' }'
 
     conn.close
 
