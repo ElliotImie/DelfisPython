@@ -20,7 +20,7 @@ def main (arg):
     print lng
 
 
-    conn = mysql.connector.connect(host="localhost", user="root", password="root", database="delfis")
+    conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
     cursor = conn.cursor()
     print("connection OK")
 
@@ -45,3 +45,4 @@ if __name__ == "__main__":
     main(sys.argv[1])
     # sys.argv[1] --> String au format json
         # {"id_user":string de 15 caractères, "latitude":string de X caractère , "longitude":string de X caractère,"dept": string de 2caractère}
+

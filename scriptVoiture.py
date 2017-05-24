@@ -39,7 +39,7 @@ def main (arg):
     # print (lng)
     # print (mode)
 
-    conn = mysql.connector.connect(host="localhost", user="root", password="root", database="delfis")
+    conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
     cursor = conn.cursor()
     print("connection OK")
 
