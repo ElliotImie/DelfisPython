@@ -14,7 +14,6 @@ def main (arg):
 
     conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
     cursor = conn.cursor()
-    print("connection OK")
 
     cursor.execute("""
     	CREATE TABLE IF NOT EXISTS usr_"""+dept+"""(
@@ -27,7 +26,6 @@ def main (arg):
     cursor.execute('INSERT INTO usr_'+dept+' (id,latitude,longitude) VALUES ("'+id_user+'", "'+str(lat)+'" , "'+str(lng)+'" );')
 
     conn.commit()
-    print("insert OK")
 
     conn.close
 

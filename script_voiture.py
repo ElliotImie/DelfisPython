@@ -23,9 +23,7 @@ import json
 import mysql.connector
 
 def main (arg):
-    print(arg)
     message = json.loads(arg)
-    print(message)
 
     dept = message["dept"]
     lat = message["latitude"]
@@ -34,7 +32,6 @@ def main (arg):
 
     conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
     cursor = conn.cursor()
-    print("connection OK")
 
     if(mode == "rural"):
         #Case mode = "rural"
@@ -86,8 +83,6 @@ def main (arg):
                 result_large[field[0]]=str(data[i])
                 i+=1
 
-    print ("nombre dans zone large pour "+mode+" : " + result_large["nbVelo"])
-
     cursor.execute(requete_short)
     dataSet = cursor.fetchall()
     fields = cursor.description
@@ -102,11 +97,8 @@ def main (arg):
                 result_min[field[0]]=str(data[i])
                 i+=1
 
-    print ("nombre dans zone short pour "+mode+" : " + result_min["nbVelo"])
-
     jsonRep = '{ "nbVeloZoneLarge" : '+ result_large["nbVelo"] +', "nbVeloZoneCourte" : '+ result_min["nbVelo"] +' }'
 
-    print(jsonRep)
     conn.close
 
     return jsonRep
