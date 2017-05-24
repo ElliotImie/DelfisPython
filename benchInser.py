@@ -20,24 +20,23 @@ i=0
 dept = 30
 timedebut  = time.time()
 
-while i < 100  :
+while i < 500000  :
 
     time1 = time.time()
 
-    cursor.execute('INSERT INTO usr_'+dept+' (id,latitude,longitude)\
-    VALUES ("test", "'+ str(lat)+'" , "'+str(lng)+'" );')
+    cursor.execute('INSERT INTO usr_'+str(dept)+'(id,latitude,longitude) VALUES ("test",'+ str(lat)+' , '+str(lng)+');')
     connBDD.commit()
 
     time2 = time.time()
 
-    print("insert OK en : " + time2 - time1 +"ms")
+    print("insert OK en : " + str(time2 - time1) +"ms")
 
     lat += 0.0002
     lng += 0.0002
     i += 1
-    time.sleep(1)
+    #time.sleep(1)
 
 timefin = time.time()
-print("Temps d'execution total : " + timefin - timedebut + " ms")
+print("Temps d'execution total : " + str( timefin - timedebut) + " ms")
 
 connBDD.close
