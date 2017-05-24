@@ -24,7 +24,7 @@ def main (arg):
     )ENGINE = MEMORY;
     """)
 
-    cursor.execute('INSERT INTO usr_'+dept+' (id,latitude,longitude) VALUES ("'+id_user+'", "'+lat+'" , "'+lng+'" );')
+    cursor.execute('INSERT INTO usr_'+dept+' (id,latitude,longitude) VALUES ("'+id_user+'", "'+str(lat)+'" , "'+str(lng)+'" );')
 
     conn.commit()
     print("insert OK")
@@ -35,5 +35,3 @@ def main (arg):
 if __name__ == "__main__":
 
     main(sys.argv[1])
-    # sys.argv[1] --> String au format json
-        # {"id_user":string de 15 caractères, "latitude":string de X caractère , "longitude":string de X caractère,"dept": string de 2caractère}
