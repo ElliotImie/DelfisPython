@@ -2,6 +2,8 @@
 import json
 import mysql.connector
 import time
+import script_velo
+
 
 connBDD = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
 cursor = connBDD.cursor()
@@ -18,18 +20,22 @@ lat = 10.0001
 lng = 5.0001
 i=0
 dept = 30
+jsonTestDict = {"id_user" : "testBench", "latitude" : 11.111, "longitude" : 22.2222, "dept" : "47"}
+jsonTest = json.dumps(jsonTestDict)
+
 timedebut  = time.time()
 
-while i < 500000  :
+while i < 100 :
 
     time1 = time.time()
 
-    cursor.execute('INSERT INTO usr_'+str(dept)+'(id,latitude,longitude) VALUES ("test",'+ str(lat)+' , '+str(lng)+');')
-    connBDD.commit()
+    # cursor.execute('INSERT INTO usr_'+str(dept)+'(id,latitude,longitude) VALUES ("test",'+ str(lat)+' , '+str(lng)+');')
+    # connBDD.commit()
+    script_velo.main(jsonTest)
 
     time2 = time.time()
 
-    print("insert OK en : " + str(time2 - time1) +"ms")
+    print("insert OK en : " + str(time2 - time1) +"sec")
 
     lat += 0.0002
     lng += 0.0002
