@@ -1,18 +1,38 @@
 import BaseHTTPServer, SimpleHTTPServer
 import ssl
-import os
-import coucou
+import json
+import scriptVelo
+import scriptVoiture
+
+jsonstring = {"id_user":"android2","latitude":"10.434","longitude":"10","dept":"49"}
+test = json.dumps(jsonstring)
 
 class RedirectHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
-        def do_GET(s):
-            s.send_response(200)
-            s.send_header('Content-type','text/html')
-            s.end_headers()
-            # Send the html message
-            s.wfile.write("Hello World !")
-            return
         def do_POST(s):
-            print coucou.main('post')
+	    if(s.path == "/velo"):
+	        print("velo")
+		content_len = int(s.headers.getheader('content-length', 0))
+		post_body = s.rfile.read(content_len)
+	
+		print(post_body)
+	
+	        scriptVelo.main(post_body)
+	        s.send_response(200)
+		s.send_header('Content-type','text/html')
+		s.end_headers()
+		s.wfile.write("insert OK")
+	    elif(s.path == "/voiture"):
+	        print("voiture")
+		content_len = int(s.headers.getheader('content-length', 0))
+		post_body = s.rfile.read(content_len)
+		
+		retour = scriptVoiture.main(post_body)
+		s.send_response(200)
+		s.send_header('Content-type','application/json')
+		s.end_headers()
+		s.wfile.write(retour)
+		
+	    else: print("Bad URL")
 
 httpd = BaseHTTPServer.HTTPServer(('', 4443), RedirectHandler)
 httpd.socket = ssl.wrap_socket (httpd.socket, certfile='/etc/ssl/server.pem', server_side=True)

@@ -6,7 +6,6 @@ import coucou
 class RedirectHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 		def do_GET(s):
 
-			return coucou.main('ta fait un get frere')
 		def do_POST(s):
 			print coucou.main('post')
 
