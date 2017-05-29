@@ -2,8 +2,6 @@
 import json
 import mysql.connector
 import time
-import script_velo
-
 
 connBDD = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
 cursor = connBDD.cursor()
