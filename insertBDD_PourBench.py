@@ -19,7 +19,6 @@ while i < 100 :
     jsonTestDict = {"id_user" : str(id_user), "latitude" : lat, "longitude" : lng, "dept" : "34"}
     jsonTest = json.dumps(jsonTestDict)
 
-#Pour bench script_velo :
     script_velo.main(jsonTest)
 
     id_user +=1
