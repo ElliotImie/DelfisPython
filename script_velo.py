@@ -14,7 +14,7 @@ def main (arg):
 
     reqDelete = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user+ '"; '
     conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
-    cursor = conn.cursor(reqDelete)
+    cursor.execute(reqDelete)
     print(reqDelete)
     conn.commit()
 
