@@ -15,10 +15,7 @@ cursor.execute("""
 )ENGINE=MEMORY;
 """)
 
-lat = 10.0001
-lng = 5.0001
 i=0
-dept = 32
 
 timedebut  = time.time()
 
@@ -26,16 +23,13 @@ while i < 100 :
     time1 = time.time()
 
 #Pour Bench insert :
-    cursor.execute('INSERT INTO usr_'+str(dept)+'(id,latitude,longitude) VALUES ("test",'+ str(lat)+' , '+str(lng)+');')
+    cursor.execute('INSERT INTO usr_32 (id,latitude,longitude) VALUES ("test", "10.0001" , " 5.0001");')
     connBDD.commit()
 
     time2 = time.time()
 
     print("insert OK en : " + str(time2 - time1) +"sec")
 
-#Pour bench insert
-    lat += 0.0003
-    lng += 0.0003
     i += 1
 
 timefin = time.time()
