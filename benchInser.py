@@ -8,33 +8,35 @@ import script_velo
 connBDD = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
 cursor = connBDD.cursor()
 
+cursor.execute("DROP TABLE usr_32")
+
 cursor.execute("""
-    CREATE TABLE IF NOT EXISTS usr_31(
+    CREATE TABLE IF NOT EXISTS usr_32(
     id varchar(20) NOT NULL,
     latitude decimal(10,8) NOT NULL,
     longitude decimal(10,8) NOT NULL
-);
+)ENGINE : MEMORY;
 """)
 
 lat = 10.0001
 lng = 5.0001
 i=0
-dept = 31
-jsonTestDict = {"id_user" : "testBench", "latitude" : 11.111, "longitude" : 22.2222, "dept" : "47"}
+dept = 32
+jsonTestDict = {"id_user" : "testBenchVelo", "latitude" : 11.111, "longitude" : 22.2222, "dept" : "32"}
 jsonTest = json.dumps(jsonTestDict)
 
 timedebut  = time.time()
 
-while i < 100 :
+while i < 10 :
 
     time1 = time.time()
 
 #Pour Bench insert :
-    cursor.execute('INSERT INTO usr_'+str(dept)+'(id,latitude,longitude) VALUES ("test",'+ str(lat)+' , '+str(lng)+');')
-    connBDD.commit()
+    # cursor.execute('INSERT INTO usr_'+str(dept)+'(id,latitude,longitude) VALUES ("test",'+ str(lat)+' , '+str(lng)+');')
+    # connBDD.commit()
 
 #Pour bench script_velo :
-    # script_velo.main(jsonTest)
+    script_velo.main(jsonTest)
 
     time2 = time.time()
 
