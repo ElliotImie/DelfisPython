@@ -13,7 +13,7 @@ def main (arg):
     lng = message["longitude"]
 
     conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
-    cursor = conn.cursor()
+    cursor = conn.cursor('DELETE FROM usr_'+dept+' WHERE "id_user" = '+ id_user+ '; ')
 
     cursor.execute("""
     	CREATE TABLE IF NOT EXISTS usr_"""+dept+"""(
