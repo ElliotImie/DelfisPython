@@ -28,6 +28,7 @@ def main (arg):
 
     cursor.execute('INSERT INTO usr_'+dept+' (id,latitude,longitude) VALUES ("'+id_user+'", "'+str(lat)+'" , "'+str(lng)+'" );')
 
+    conn.commit()
     conn.close
 
 
