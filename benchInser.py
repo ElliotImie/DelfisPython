@@ -9,17 +9,17 @@ connBDD = mysql.connector.connect(host="localhost", user="root", password="delfi
 cursor = connBDD.cursor()
 
 cursor.execute("""
-    CREATE TABLE IF NOT EXISTS usr_30(
+    CREATE TABLE IF NOT EXISTS usr_31(
     id varchar(20) NOT NULL,
     latitude decimal(10,8) NOT NULL,
     longitude decimal(10,8) NOT NULL
-)ENGINE = MEMORY;
+);
 """)
 
 lat = 10.0001
 lng = 5.0001
 i=0
-dept = 30
+dept = 31
 jsonTestDict = {"id_user" : "testBench", "latitude" : 11.111, "longitude" : 22.2222, "dept" : "47"}
 jsonTest = json.dumps(jsonTestDict)
 
@@ -29,9 +29,12 @@ while i < 10000 :
 
     time1 = time.time()
 
-    # cursor.execute('INSERT INTO usr_'+str(dept)+'(id,latitude,longitude) VALUES ("test",'+ str(lat)+' , '+str(lng)+');')
-    # connBDD.commit()
-    script_velo.main(jsonTest)
+#Pour Bench insert :
+    cursor.execute('INSERT INTO usr_'+str(dept)+'(id,latitude,longitude) VALUES ("test",'+ str(lat)+' , '+str(lng)+');')
+    connBDD.commit()
+
+#Pour bench script_velo :
+    # script_velo.main(jsonTest)
 
     time2 = time.time()
 
