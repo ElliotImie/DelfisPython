@@ -21,8 +21,6 @@ lat = 10.0001
 lng = 5.0001
 i=0
 dept = 32
-jsonTestDict = {"id_user" : "testBenchVelo2", "latitude" : 11.111, "longitude" : 22.2222, "dept" : "32"}
-jsonTest = json.dumps(jsonTestDict)
 
 timedebut  = time.time()
 
@@ -32,9 +30,6 @@ while i < 10000 :
 #Pour Bench insert :
     cursor.execute('INSERT INTO usr_'+str(dept)+'(id,latitude,longitude) VALUES ("test",'+ str(lat)+' , '+str(lng)+');')
     connBDD.commit()
-
-#Pour bench script_velo :
-    # script_velo.main(jsonTest)
 
     time2 = time.time()
 
@@ -46,6 +41,6 @@ while i < 10000 :
     i += 1
 
 timefin = time.time()
-print("Temps d'execution total : " + str( timefin - timedebut) + " ms")
+print("Temps d'execution total : " + str( timefin - timedebut) + " s")
 
 connBDD.close
