@@ -29,7 +29,7 @@ timedebut  = time.time()
 while i < 10000 :
     time1 = time.time()
 
-Pour Bench insert :
+#Pour Bench insert :
     cursor.execute('INSERT INTO usr_'+str(dept)+'(id,latitude,longitude) VALUES ("test",'+ str(lat)+' , '+str(lng)+');')
     connBDD.commit()
 
