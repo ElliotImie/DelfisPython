@@ -20,12 +20,12 @@ def main (arg):
     	id varchar(20) NOT NULL,
     	latitude decimal(10,8) NOT NULL,
     	longitude decimal(10,8) NOT NULL
-    )ENGINE=MEMORY;
+    );
     """)
 
     reqDel = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user +'" ; '
     cursor.execute(reqDel)
-    
+
     cursor.execute('INSERT INTO usr_'+dept+' (id,latitude,longitude) VALUES ("'+id_user+'", "'+str(lat)+'" , "'+str(lng)+'" );')
 
     conn.close

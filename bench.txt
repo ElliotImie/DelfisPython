@@ -11,13 +11,15 @@ Bench insertion en base sur table in MEMORY:
 Bench insertion en base sur table innoDB :
    100 insertions : 0.065s / 0.075s / 0.069s /0.070s
    1 000 insertions : 1.077s / 0.729s / 1.115s / 0.736s
-   10 000 insertions : 27.213
-   100 000 insertions : 19.051s
+   10 000 insertions : 
 
 // SCRIPT VELO
 Bench script_velo table in MEMORY:
-   100 appels : 0.419s / 0.516s / 0.547s / 0.474s
-   1 000 appels : 5.148s / 3.759s / 4.735s / 4.579s
-   10 000 appels : 32.600s / 34.414s / 36.297s
+   100 appels : 0.226s / 0.235s / 0.241s / 0.213s
+   1 000 appels : 2.487s / 2.325s / 2.080s / 2.163s
+   10 000 appels : 23.378s / 23.876s / 23.008s
 
 Bench script_velo table innoDB :
+   100 appels : 0.444s / 0.514s / 0.475s / 0.395s
+   1 000 appels : 2.902s / 3.880s / 4.057s / 4.348s
+   10 000 appels : 40.211s / 37.964s / 38.574s
