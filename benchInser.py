@@ -20,7 +20,7 @@ lat = 10.0001
 lng = 5.0001
 i=0
 dept = 32
-jsonTestDict = {"id_user" : "testBenchVelo", "latitude" : 11.111, "longitude" : 22.2222, "dept" : "32"}
+jsonTestDict = {"id_user" : "testBenchVelo2", "latitude" : 11.111, "longitude" : 22.2222, "dept" : "32"}
 jsonTest = json.dumps(jsonTestDict)
 
 timedebut  = time.time()
