@@ -17,7 +17,6 @@ def main (arg):
 
     reqDel = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user +'" ; '
     cursor.execute(reqDel)
-    print(reqDel)
 
     cursor.execute("""
     	CREATE TABLE IF NOT EXISTS usr_"""+dept+"""(
@@ -28,8 +27,6 @@ def main (arg):
     """)
 
     cursor.execute('INSERT INTO usr_'+dept+' (id,latitude,longitude) VALUES ("'+id_user+'", "'+str(lat)+'" , "'+str(lng)+'" );')
-
-    #conn.commit()
 
     conn.close
 
