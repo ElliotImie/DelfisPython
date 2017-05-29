@@ -8,13 +8,14 @@ import script_velo
 connBDD = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
 cursor = connBDD.cursor()
 
-cursor.execute("""
-    CREATE TABLE IF NOT EXISTS usr_32(
-    id varchar(20) NOT NULL,
-    latitude decimal(10,8) NOT NULL,
-    longitude decimal(10,8) NOT NULL
-);
-""")
+# Pour bench insert
+# cursor.execute("""
+#     CREATE TABLE IF NOT EXISTS usr_32(
+#     id varchar(20) NOT NULL,
+#     latitude decimal(10,8) NOT NULL,
+#     longitude decimal(10,8) NOT NULL
+# );
+# """)
 
 lat = 10.0001
 lng = 5.0001
@@ -39,10 +40,10 @@ while i < 100 :
 
     print("insert OK en : " + str(time2 - time1) +"sec")
 
-    lat += 0.0002
-    lng += 0.0002
-    i += 1
-    #time.sleep(1)
+#Pour bench insert
+    # lat += 0.0002
+    # lng += 0.0002
+    # i += 1
 
 timefin = time.time()
 print("Temps d'execution total : " + str( timefin - timedebut) + " ms")
