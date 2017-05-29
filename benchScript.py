@@ -8,7 +8,7 @@ import script_velo
 connBDD = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
 cursor = connBDD.cursor()
 
-jsonTestDict = {"id_user" : "testBenchVelo2", "latitude" : 11.111, "longitude" : 22.2222, "dept" : "32"}
+jsonTestDict = {"id_user" : "testBenchVelo2", "latitude" : 11.111, "longitude" : 22.2222, "dept" : "33"}
 jsonTest = json.dumps(jsonTestDict)
 
 i=0

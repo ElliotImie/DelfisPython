@@ -20,7 +20,7 @@ def main (arg):
     	id varchar(20) NOT NULL,
     	latitude decimal(10,8) NOT NULL,
     	longitude decimal(10,8) NOT NULL
-    );
+    )ENGINE=MEMORY;
     """)
 
     reqDel = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user +'" ; '
