@@ -25,8 +25,6 @@ while i < 100 :
     lat += 0.003
     lng += 0.003
 
-    print("insert OK en : " + str(time2 - time1) +"sec")
-
     i += 1
 
 timefin = time.time()
