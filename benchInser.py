@@ -8,8 +8,6 @@ import script_velo
 connBDD = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
 cursor = connBDD.cursor()
 
-cursor.execute("DROP TABLE usr_32")
-
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS usr_32(
     id varchar(20) NOT NULL,
