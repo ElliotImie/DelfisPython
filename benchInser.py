@@ -26,7 +26,7 @@ jsonTest = json.dumps(jsonTestDict)
 
 timedebut  = time.time()
 
-while i < 10000 :
+while i < 100 :
     time1 = time.time()
 
 #Pour Bench insert :
@@ -41,8 +41,8 @@ while i < 10000 :
     print("insert OK en : " + str(time2 - time1) +"sec")
 
 #Pour bench insert
-    lat += 0.0002
-    lng += 0.0002
+    lat += 0.0003
+    lng += 0.0003
     i += 1
 
 timefin = time.time()
