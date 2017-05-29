@@ -1,6 +1,6 @@
 // INSERT DE BASE
 Bench insertion en base sur table in MEMORY:
-   100 insertions : 0.0135s
+   100 insertions : 0.019s / 0.014s / 0.013
    1 000 insertions : 0.180s
    10 000 insertions : 1.667s
    100 000 insertions : 14.267s
