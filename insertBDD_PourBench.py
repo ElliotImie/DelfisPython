@@ -11,7 +11,7 @@ lng = 50.000
 connBDD = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
 cursor = connBDD.cursor()
 
-i=0
+i=1000
 timedebut  = time.time()
 
 while i < 1000 :
@@ -22,8 +22,8 @@ while i < 1000 :
     script_velo.main(jsonTest)
 
     id_user +=1
-    lat += 0.003
-    lng += 0.003
+    lat += 0.0003
+    lng += 0.0003
 
     i += 1
 
