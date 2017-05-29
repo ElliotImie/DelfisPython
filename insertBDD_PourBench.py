@@ -11,10 +11,10 @@ lng = 50.000
 connBDD = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
 cursor = connBDD.cursor()
 
-i=1000
+i=0
 timedebut  = time.time()
 
-while i < 2000 :
+while i < 1000 :
 
     jsonTestDict = {"id_user" : str(id_user), "latitude" : lat, "longitude" : lng, "dept" : "34"}
     jsonTest = json.dumps(jsonTestDict)
