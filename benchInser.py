@@ -12,7 +12,7 @@ cursor.execute("""
     id varchar(20) NOT NULL,
     latitude decimal(10,8) NOT NULL,
     longitude decimal(10,8) NOT NULL
-);
+)ENGINE=InnoDB;
 """)
 
 lat = 10.0001
@@ -22,7 +22,7 @@ dept = 32
 
 timedebut  = time.time()
 
-while i < 10000 :
+while i < 100 :
     time1 = time.time()
 
 #Pour Bench insert :
