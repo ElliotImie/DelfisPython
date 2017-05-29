@@ -15,7 +15,7 @@ def main (arg):
     reqDelete = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user+ '"; '
     conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
     cursor = conn.cursor(reqDelete)
-
+    conn.commit()
 
     cursor.execute("""
     	CREATE TABLE IF NOT EXISTS usr_"""+dept+"""(
