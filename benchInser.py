@@ -12,14 +12,14 @@ cursor.execute("""
     id varchar(20) NOT NULL,
     latitude decimal(10,8) NOT NULL,
     longitude decimal(10,8) NOT NULL
-);
+)ENGINE=InnoDB;
 """)
 
 i=0
 
 timedebut  = time.time()
 
-while i < 100 :
+while i < 100000 :
     time1 = time.time()
 
 #Pour Bench insert :
