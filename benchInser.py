@@ -25,7 +25,7 @@ jsonTest = json.dumps(jsonTestDict)
 
 timedebut  = time.time()
 
-while i < 10 :
+while i < 100 :
     time1 = time.time()
 
 #Pour Bench insert :
