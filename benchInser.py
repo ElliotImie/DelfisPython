@@ -13,7 +13,7 @@ cursor.execute("""
     id varchar(20) NOT NULL,
     latitude decimal(10,8) NOT NULL,
     longitude decimal(10,8) NOT NULL
-)ENGINE : MEMORY;
+)ENGINE= MEMORY;
 """)
 
 lat = 10.0001
