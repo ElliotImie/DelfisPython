@@ -15,9 +15,6 @@ def main (arg):
     conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
     cursor = conn.cursor()
 
-    reqDel = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user +'" ; '
-    cursor.execute(reqDel)
-
     cursor.execute("""
     	CREATE TABLE IF NOT EXISTS usr_"""+dept+"""(
     	id varchar(20) NOT NULL,
@@ -26,6 +23,9 @@ def main (arg):
     )ENGINE=MEMORY;
     """)
 
+    reqDel = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user +'" ; '
+    cursor.execute(reqDel)
+    
     cursor.execute('INSERT INTO usr_'+dept+' (id,latitude,longitude) VALUES ("'+id_user+'", "'+str(lat)+'" , "'+str(lng)+'" );')
 
     conn.close
