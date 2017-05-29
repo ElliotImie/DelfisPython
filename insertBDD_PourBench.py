@@ -14,7 +14,7 @@ cursor = connBDD.cursor()
 i=0
 timedebut  = time.time()
 
-while i < 100 :
+while i < 1000 :
 
     jsonTestDict = {"id_user" : str(id_user), "latitude" : lat, "longitude" : lng, "dept" : "34"}
     jsonTest = json.dumps(jsonTestDict)
