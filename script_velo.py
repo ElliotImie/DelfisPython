@@ -12,23 +12,24 @@ def main (arg):
     lat = message["latitude"]
     lng = message["longitude"]
 
-    reqDelete = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user+ '"; '
     conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
-    cursor.execute(reqDelete)
-    print(reqDelete)
-    conn.commit()
+    cursor = conn.cursor()
+
+    reqDel = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user +'" ; '
+    cursor.execute(reqDel)
+    print(reqDel)
 
     cursor.execute("""
     	CREATE TABLE IF NOT EXISTS usr_"""+dept+"""(
     	id varchar(20) NOT NULL,
     	latitude decimal(10,8) NOT NULL,
     	longitude decimal(10,8) NOT NULL
-    )ENGINE=MEMORY;
+    )ENGINE = MEMORY;
     """)
 
     cursor.execute('INSERT INTO usr_'+dept+' (id,latitude,longitude) VALUES ("'+id_user+'", "'+str(lat)+'" , "'+str(lng)+'" );')
 
-    conn.commit()
+    #conn.commit()
 
     conn.close
 
