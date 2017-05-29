@@ -12,8 +12,10 @@ def main (arg):
     lat = message["latitude"]
     lng = message["longitude"]
 
+    reqDelete = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user+ '"; '
     conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
-    cursor = conn.cursor('DELETE FROM usr_'+dept+' WHERE id like "'+ id_user+ '"; ')
+    cursor = conn.cursor(reqDelete)
+
 
     cursor.execute("""
     	CREATE TABLE IF NOT EXISTS usr_"""+dept+"""(
