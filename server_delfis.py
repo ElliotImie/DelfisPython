@@ -8,7 +8,6 @@ import time
 # jsonstring = {"id_user":"android2","latitude":"10.434","longitude":"10","dept":"49"}
 # test = json.dumps(jsonstring)
 
-
 class RedirectHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         def do_POST(s):
     	    if(s.path == "/velo"):
