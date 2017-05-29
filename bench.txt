@@ -1,6 +1,19 @@
+Bench insertion en base sur table in MEMORY:
+
 100 insertions : 0.0135s
-1000 insertions : 0.180s
+1 000 insertions : 0.180s
 10 000 insertions : 1.667s
 100 000 insertions : 14.267s
 1 000 000 insertions : L'insertion s'arrête à 523 908 (table full)
 500 000 insertions : 79.716s
+select all (500 000 inserstions) : 0.23sec
+
+Bench insertion en base sur table innoDB
+
+Bench script_velo :
+
+100 appels : 0.382s
+1 000 appels : 3.442s
+10 000 appels : 38.402s
+
+Bench
