@@ -23,7 +23,7 @@ def main (arg):
     )ENGINE=MEMORY;
     """)
 
-    cursor.execute('CREATE EVENT IF NOT EXISTS truncate_'+dept+' on schedule every 20 second DO TRUNCATE usr_'+dept+' ;')
+    #cursor.execute('CREATE EVENT IF NOT EXISTS truncate_'+dept+' on schedule every 20 second DO TRUNCATE usr_'+dept+' ;')
 
 
     reqDel = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user +'" ; '
