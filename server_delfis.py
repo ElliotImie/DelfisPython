@@ -9,6 +9,11 @@ import time
 # test = json.dumps(jsonstring)
 
 class RedirectHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
+        def do_GET(s):
+            s.send_response(200)
+            s.send_header('Content-type','text/html')
+            s.end_headers()
+            s.wfile.write("insert OK")
         def do_POST(s):
     	    if(s.path == "/velo"):
                 content_len = int(s.headers.getheader('content-length', 0))
