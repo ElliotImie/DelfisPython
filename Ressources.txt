@@ -1,4 +1,0 @@
-WebService Python :
-http://www.dreamsyssoft.com/python-scripting-tutorial/create-simple-rest-web-service-with-python.php
-Autre exemple :
-http://stackoverflow.com/questions/7943385/what-python-framework-for-a-rest-json-web-service-with-no-front-end

@@ -1,6 +1,0 @@
-Json nécessaire :
-   pour vélo :
-      {"id_user" : "String", "latitude" : float, "longitude" : float, "dept" : "String"}
-
-   pour voiture :
-      { "latitude" : float, "longitude" : float, "dept" : "String", "mode" : "String (urbain/rual)"}
