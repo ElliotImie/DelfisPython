@@ -16,7 +16,7 @@ timedebut  = time.time()
 
 while i < 1000 :
 
-    jsonTestDict = {"id_user" : str(id_user), "latitude" : lat, "longitude" : lng, "dept" : "35"}
+    jsonTestDict = {"id_user" : str(id_user), "latitude" : lat, "longitude" : lng, "dept" : "39"}
     jsonTest = json.dumps(jsonTestDict)
 
     script_velo.main(jsonTest)
