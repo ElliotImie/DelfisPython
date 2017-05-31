@@ -27,7 +27,7 @@ def main (arg):
 
 
     #reqDel = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user +'" ; '
-    cursor.execute(reqDel)
+    #cursor.execute(reqDel)
 
     cursor.execute('INSERT INTO usr_'+dept+' (id,latitude,longitude) VALUES ("'+id_user+'", "'+str(lat)+'" , "'+str(lng)+'" );')
 
