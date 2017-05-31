@@ -8,22 +8,71 @@ cursor = connBDD.cursor()
 
 #Pour bench insert
 cursor.execute("""
-    CREATE TABLE IF NOT EXISTS usr_32(
+    CREATE TABLE IF NOT EXISTS usr_01(
     id varchar(20) NOT NULL,
     latitude decimal(10,8) NOT NULL,
     longitude decimal(10,8) NOT NULL
-)ENGINE=InnoDB;
+)ENGINE=MEMORY;
+""")
+
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS usr_02(
+    id varchar(20) NOT NULL,
+    latitude decimal(10,8) NOT NULL,
+    longitude decimal(10,8) NOT NULL
+)ENGINE=MEMORY;
+""")
+
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS usr_03(
+    id varchar(20) NOT NULL,
+    latitude decimal(10,8) NOT NULL,
+    longitude decimal(10,8) NOT NULL
+)ENGINE=MEMORY;
+""")
+
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS usr_04(
+    id varchar(20) NOT NULL,
+    latitude decimal(10,8) NOT NULL,
+    longitude decimal(10,8) NOT NULL
+)ENGINE=MEMORY;
 """)
 
 i=0
 
 timedebut  = time.time()
 
-while i < 100000 :
+while i < 1 :
     time1 = time.time()
 
 #Pour Bench insert :
-    cursor.execute('INSERT INTO usr_32 (id,latitude,longitude) VALUES ("test", "10.0001" , " 5.0001");')
+    cursor.execute('INSERT INTO usr_01 (id,latitude,longitude) VALUES ("velo0", "0.0" , " 0.0");')
+    connBDD.commit()
+
+    cursor.execute('INSERT INTO usr_02 (id,latitude,longitude) VALUES ("velo1", "0.0" , " 0.0");')
+    cursor.execute('INSERT INTO usr_02 (id,latitude,longitude) VALUES ("velo2", "0.0" , " 0.0");')
+    cursor.execute('INSERT INTO usr_02 (id,latitude,longitude) VALUES ("velo3", "0.0" , " 0.0");')
+    cursor.execute('INSERT INTO usr_02 (id,latitude,longitude) VALUES ("velo4", "0.0" , " 0.0");')
+    cursor.execute('INSERT INTO usr_02 (id,latitude,longitude) VALUES ("velo5", "0.0" , " 0.0");')
+    connBDD.commit()
+
+    cursor.execute('INSERT INTO usr_03 (id,latitude,longitude) VALUES ("velo0", "0.003" , " 0.0");')
+    connBDD.commit()
+
+    cursor.execute('INSERT INTO usr_04 (id,latitude,longitude) VALUES ("velo0", "0.0" , " 0.0");')
+    cursor.execute('INSERT INTO usr_04 (id,latitude,longitude) VALUES ("velo1", "0.0" , " 0.0");')
+    cursor.execute('INSERT INTO usr_04 (id,latitude,longitude) VALUES ("velo2", "0.0" , " 0.0");')
+    cursor.execute('INSERT INTO usr_04 (id,latitude,longitude) VALUES ("velo3", "0.0" , " 0.0");')
+    cursor.execute('INSERT INTO usr_04 (id,latitude,longitude) VALUES ("velo4", "0.0" , " 0.0");')
+
+    cursor.execute('INSERT INTO usr_04 (id,latitude,longitude) VALUES ("velo0", "0.003" , " 0.0");')
+    cursor.execute('INSERT INTO usr_04 (id,latitude,longitude) VALUES ("velo1", "0.003" , " 0.0");')
+    cursor.execute('INSERT INTO usr_04 (id,latitude,longitude) VALUES ("velo2", "0.003" , " 0.0");')
+    cursor.execute('INSERT INTO usr_04 (id,latitude,longitude) VALUES ("velo3", "0.003" , " 0.0");')
+    cursor.execute('INSERT INTO usr_04 (id,latitude,longitude) VALUES ("velo4", "0.003" , " 0.0");')
+
+
     connBDD.commit()
 
     time2 = time.time()
