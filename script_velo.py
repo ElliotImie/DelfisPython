@@ -26,7 +26,7 @@ def main (arg):
     cursor.execute('CREATE EVENT IF NOT EXISTS truncate_'+dept+' on schedule every 20 second DO TRUNCATE usr_'+dept+' ;')
 
 
-    reqDel = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user +'" ; '
+    #reqDel = 'DELETE FROM usr_'+dept+' WHERE id like "'+ id_user +'" ; '
     cursor.execute(reqDel)
 
     cursor.execute('INSERT INTO usr_'+dept+' (id,latitude,longitude) VALUES ("'+id_user+'", "'+str(lat)+'" , "'+str(lng)+'" );')
