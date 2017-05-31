@@ -26,14 +26,14 @@ class RedirectHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
                 s.wfile.write("insert OK")
 
     	    elif(s.path == "/voiture"):
-        		content_len = int(s.headers.getheader('content-length', 0))
-        		post_body = s.rfile.read(content_len)
-        		retour = script_voiture.main(post_body)
+        	content_len = int(s.headers.getheader('content-length', 0))
+        	post_body = s.rfile.read(content_len)
+        	retour = script_voiture.main(post_body)
                 print(retour)
-        		s.send_response(200)
-        		s.send_header('Content-type','application/json')
-        		s.end_headers()
-        		s.wfile.write(retour)
+        	s.send_response(200)
+        	s.send_header('Content-type','application/json')
+        	s.end_headers()
+        	s.wfile.write(retour)
 
     	    else: print("Bad URL")
 
