@@ -22,6 +22,15 @@ import sys
 import json
 import mysql.connector
 
+#Case mode = "urbain"
+#Périmètre large : 250m, court: 50m
+precisionLoinUrbain = 0.0025
+precisionCourtUrbain = 0.0005
+#Case mode = "rural"
+#Périmètre large : 750m, court : 250m
+precisionLoinRural = 0.0075
+precisionCourtRural = 0.0025
+
 def main (arg):
     message = json.loads(arg)
 
@@ -34,32 +43,27 @@ def main (arg):
     cursor = conn.cursor()
 
     if(mode == "rural"):
-        #Case mode = "rural"
-        #Périmètre large : 400m, court : 100m
-        #       lat_large +/- 0.004 ; lat_min - 0.001
-        lat_large_max = str(lat + 0.004)
-        lat_large_min = str(lat - 0.004)
-        lat_short_max = str(lat + 0.001)
-        lat_short_min = str(lat - 0.001)
+        lat_large_max = str(lat + precisionLoinRural)
+        lat_large_min = str(lat - precisionLoinRural)
+        lat_short_max = str(lat + precisionCourtRural)
+        lat_short_min = str(lat - precisionCourtRural)
 
-        lng_large_max = str(lng + 0.004)
-        lng_large_min = str(lng - 0.004)
-        lng_short_max = str(lng + 0.001)
-        lng_short_min = str(lng - 0.001)
+        lng_large_max = str(lng + precisionLoinRural)
+        lng_large_min = str(lng - precisionLoinRural)
+        lng_short_max = str(lng + precisionCourtRural)
+        lng_short_min = str(lng - precisionCourtRural)
 
     elif(mode == "urbain"):
-        #Case mode = "urbain"
-        #Périmètre large : 100m, court: 10m
-        #       lat_large +/- 0.001 ; lat_min +/- 0.0001
-        lat_large_max = str(lat + 0.001)
-        lat_large_min = str(lat - 0.001)
-        lat_short_max = str(lat + 0.0001)
-        lat_short_min = str(lat - 0.0001)
 
-        lng_large_max = str(lng + 0.001)
-        lng_large_min = str(lng - 0.001)
-        lng_short_max = str(lng + 0.0001)
-        lng_short_min = str(lng - 0.0001)
+        lat_large_max = str(lat + precisionLoinUrbain)
+        lat_large_min = str(lat - precisionLoinUrbain)
+        lat_short_max = str(lat + precisionCourtUrbain)
+        lat_short_min = str(lat - precisionCourtUrbain)
+
+        lng_large_max = str(lng + precisionLoinUrbain)
+        lng_large_min = str(lng - precisionLoinUrbain)
+        lng_short_max = str(lng + precisionCourtUrbain)
+        lng_short_min = str(lng - precisionCourtUrbain)
 
     requete_large = 'SELECT count(id) as nbVelo FROM usr_'+dept+'\
     WHERE latitude BETWEEN "'+ lat_large_min+'" AND "'+ lat_large_max +'" \
