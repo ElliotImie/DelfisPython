@@ -11,7 +11,7 @@ def main (arg):
     id_user = message["id_user"]
     lat = message["latitude"]
     lng = message["longitude"]
-
+    
     conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
     cursor = conn.cursor()
 

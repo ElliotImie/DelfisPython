@@ -22,14 +22,6 @@ import sys
 import json
 import mysql.connector
 
-#Case mode = "urbain"
-#Périmètre large : 250m, court: 50m
-precisionLoinUrbain = 0.0025
-precisionCourtUrbain = 0.0005
-#Case mode = "rural"
-#Périmètre large : 750m, court : 250m
-precisionLoinRural = 0.0075
-precisionCourtRural = 0.0025
 
 def main (arg):
     message = json.loads(arg)
@@ -38,6 +30,21 @@ def main (arg):
     lat = message["latitude"]
     lng = message["longitude"]
     mode = message["mode"]
+    #Récupère la précision du signal gps de la voiture.
+    #Pour limiter les incertitudes on ajoute cette précision au rayon de recherche de vélo.
+    #Par exemple, pour une voiture en milieu urbain ( zone large : 250m, zone courte : 50m ),
+    #   si la précision du gps de la voiture est de 30m, on élargie la zone large a 280m et zone courte a 80m
+    precision = message["precision"]
+
+    #Case mode = "urbain"
+    #Périmètre large : 250m, court: 50m
+    precisionLoinUrbain = 0.0025 + (precision * 0.00001)
+    precisionCourtUrbain = 0.0005 + (precision * 0.00001)
+    #Case mode = "rural"
+    #Périmètre large : 750m, court : 250m
+    precisionLoinRural = 0.0075 + (precision * 0.00001)
+    precisionCourtRural = 0.0025 + (precision * 0.00001)
+
 
     conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
     cursor = conn.cursor()
