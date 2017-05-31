@@ -16,26 +16,26 @@ class RedirectHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             s.wfile.write("insert OK")
 
         def do_POST(s):
-    	    if(s.path == "/velo"):
+            if(s.path == "/velo"):
                 content_len = int(s.headers.getheader('content-length', 0))
                 post_body = s.rfile.read(content_len)
-    	        script_velo.main(post_body)
-    	        s.send_response(200)
+                script_velo.main(post_body)
+                s.send_response(200)
                 s.send_header('Content-type','text/html')
                 s.end_headers()
                 s.wfile.write("insert OK")
 
-    	    elif(s.path == "/voiture"):
-        	content_len = int(s.headers.getheader('content-length', 0))
-        	post_body = s.rfile.read(content_len)
-        	retour = script_voiture.main(post_body)
-                print(retour)
-        	s.send_response(200)
-        	s.send_header('Content-type','application/json')
-        	s.end_headers()
-        	s.wfile.write(retour)
+            elif(s.path == "/voiture"):
+                content_len = int(s.headers.getheader('content-length', 0))
+                post_body = s.rfile.read(content_len)
+                print(post_body)
+                retour = script_voiture.main(post_body)
+                s.send_response(200)
+                s.send_header('Content-type','application/json')
+                s.end_headers()
+                s.wfile.write(retour)
 
-    	    else: print("Bad URL")
+            else: print("Bad URL")
 
 httpd = BaseHTTPServer.HTTPServer(('', 4443), RedirectHandler)
 httpd.socket = ssl.wrap_socket (httpd.socket, certfile='/etc/ssl/server.pem', server_side=True)
