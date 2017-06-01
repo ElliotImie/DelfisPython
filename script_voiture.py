@@ -37,18 +37,19 @@ def main (arg):
     precision = message["precision"]
     precision = precision / 2
 
-    if(precision < 100):
-        #Case mode = "urbain"
-        #Périmètre large : 250m, court: 50m
-        precisionLoinUrbain = 0.0025 + (precision * 0.00001)
-        precisionCourtUrbain = 0.0005 + (precision * 0.00001)
-        #Case mode = "rural"
-        #Périmètre large : 750m, court : 250m
-        precisionLoinRural = 0.0075 + (precision * 0.00001)
-        precisionCourtRural = 0.0025 + (precision * 0.00001)
-
-    else:
+    if(precision > 100):
         precision = 0
+
+    #Case mode = "urbain"
+    #Périmètre large : 250m, court: 50m
+    precisionLoinUrbain = 0.0025 + (precision * 0.00001)
+    precisionCourtUrbain = 0.0005 + (precision * 0.00001)
+    #Case mode = "rural"
+    #Périmètre large : 750m, court : 250m
+    precisionLoinRural = 0.0075 + (precision * 0.00001)
+    precisionCourtRural = 0.0025 + (precision * 0.00001)
+
+
 
     conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
     cursor = conn.cursor()
