@@ -35,6 +35,7 @@ def main (arg):
     #Par exemple, pour une voiture en milieu urbain ( zone large : 250m, zone courte : 50m ),
     #   si la précision du gps de la voiture est de 30m, on élargie la zone large a 280m et zone courte a 80m
     precision = message["precision"]
+    precision = precision / 2
 
     if(precision < 100):
         #Case mode = "urbain"
