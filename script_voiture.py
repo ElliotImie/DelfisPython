@@ -29,7 +29,10 @@ def main (arg):
     dept = message["dept"]
     lat = message["latitude"]
     lng = message["longitude"]
-    mode = message["mode"]
+
+    zoneCourte = message["zoneCourte"]
+    zoneLongue = message["zoneLongue"]
+
     #Récupère la précision du signal gps de la voiture.
     #Pour limiter les incertitudes on ajoute cette précision au rayon de recherche de vélo.
     #Par exemple, pour une voiture en milieu urbain ( zone large : 250m, zone courte : 50m ),
@@ -40,42 +43,21 @@ def main (arg):
     if(precision > 100):
         precision = 0
 
-    #Case mode = "urbain"
-    #Périmètre large : 250m, court: 50m
-    precisionLoinUrbain = 0.0025 + (precision * 0.00001)
-    precisionCourtUrbain = 0.0005 + (precision * 0.00001)
-    #Case mode = "rural"
-    #Périmètre large : 750m, court : 250m
-    precisionLoinRural = 0.0075 + (precision * 0.00001)
-    precisionCourtRural = 0.0025 + (precision * 0.00001)
-
-
+    precisionCourte = (zoneCourte * 0.00001) + (precision * 0.00001)
+    precisionLongue = (zoneLongue * 0.00001) + (precision * 0.00001)
 
     conn = mysql.connector.connect(host="localhost", user="root", password="delfis", database="delfis")
     cursor = conn.cursor()
 
-    if(mode == "rural"):
-        lat_large_max = str(lat + precisionLoinRural)
-        lat_large_min = str(lat - precisionLoinRural)
-        lat_short_max = str(lat + precisionCourtRural)
-        lat_short_min = str(lat - precisionCourtRural)
+    lat_large_max = str(lat + precisionLongue)
+    lat_large_min = str(lat - precisionLongue)
+    lat_short_max = str(lat + precisionCourte)
+    lat_short_min = str(lat - precisionCourte)
 
-        lng_large_max = str(lng + precisionLoinRural)
-        lng_large_min = str(lng - precisionLoinRural)
-        lng_short_max = str(lng + precisionCourtRural)
-        lng_short_min = str(lng - precisionCourtRural)
-
-    elif(mode == "urbain"):
-
-        lat_large_max = str(lat + precisionLoinUrbain)
-        lat_large_min = str(lat - precisionLoinUrbain)
-        lat_short_max = str(lat + precisionCourtUrbain)
-        lat_short_min = str(lat - precisionCourtUrbain)
-
-        lng_large_max = str(lng + precisionLoinUrbain)
-        lng_large_min = str(lng - precisionLoinUrbain)
-        lng_short_max = str(lng + precisionCourtUrbain)
-        lng_short_min = str(lng - precisionCourtUrbain)
+    lng_large_max = str(lng + precisionLongue)
+    lng_large_min = str(lng - precisionLongue)
+    lng_short_max = str(lng + precisionCourte)
+    lng_short_min = str(lng - precisionCourte)
 
     requete_large = 'SELECT count(id) as nbVelo FROM usr_'+dept+'\
     WHERE latitude BETWEEN "'+ lat_large_min+'" AND "'+ lat_large_max +'" \
